@@ -19,7 +19,7 @@ class _Container extends React.Component {
         previousRoute: storedState.previousRoute,
       });
 
-      this.props.history.push(storedState.route);
+      this.props.history.push(storedState.route, storedState.previousRoute);
     }
 
     this.unlisten = this.props.history.listen(this._storeState);
@@ -35,14 +35,13 @@ class _Container extends React.Component {
       route: state.route,
       previousRoute: state.previousRoute,
     });
-    console.log(state);
+
     localStorage.setItem('ReactRouterLocation', JSON.stringify(state));
   }
 
   render() {
     return (
       <>
-
         <Header />
         <main>{this.props.children}</main>
       </>
