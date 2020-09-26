@@ -19,7 +19,8 @@ class _Container extends React.Component {
         previousRoute: storedState.previousRoute,
       });
 
-      this.props.history.push(storedState.route, storedState.previousRoute);
+      this.props.history.push(storedState.previousRoute);
+      this.props.history.push(storedState.route);
     }
 
     this.unlisten = this.props.history.listen(this._storeState);
